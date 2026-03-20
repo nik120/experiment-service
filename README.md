@@ -6,6 +6,7 @@ and serves the configuration to frontend clients.
 ## Clone the service
 ```bash
 git clone https://github.com/nik120/experiment-service.git
+npm i
 ```
 
 ## How to Build
