@@ -1,0 +1,23 @@
+{
+  "experiments": [
+    {
+      "name": "homepage_cta",
+      "variants": [
+        {
+          "name": "control",
+          "weight": 50,
+          "config": {
+            "button_text": "Get Started"
+          }
+        },
+        {
+          "name": "treatment",
+          "weight": 50,
+          "config": {
+            "button_text": "Try For Free"
+          }
+        }
+      ]
+    }
+  ]
+}
