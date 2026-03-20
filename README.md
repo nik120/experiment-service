@@ -3,14 +3,23 @@
 A backend service that deterministically assigns users to experiment variants
 and serves the configuration to frontend clients.
 
+## Clone the service
+```bash
+git clone https://github.com/nik120/experiment-service.git
+```
+
 ## How to Build
 ```bash
 docker compose build
 ```
 
-## How to Run
+## How to Run with docker
 ```bash
 docker compose up
+```
+## How to Run without docker
+```bash
+npm run start
 ```
 
 ## How to Trigger Core Functionality
@@ -41,6 +50,30 @@ Restart the container and check again — still same variant:
 docker compose restart
 curl "localhost:8080/experiment?user_id=42"
 ```
+## Running Tests
+```bash
+npm run test
+```
+
+To see detailed output:
+```bash
+npm run test -- --verbose
+```
+
+## What the Tests Cover
+
+**Service tests:**
+- Same user always gets same variant (determinism)
+- Variant is always A or B, nothing else
+- Different users get different variants
+- Roughly 50/50 split over 1000 users
+
+**Controller tests:**
+- Returns success response for valid user_id
+- Same user always gets same variant on repeated calls
+- Throws error when user_id is empty
+- Throws error when user_id is not a number
+- Throws error when user_id is negative
 
 ## How Assignment Works
 
